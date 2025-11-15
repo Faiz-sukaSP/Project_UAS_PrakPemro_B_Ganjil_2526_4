@@ -19,7 +19,7 @@
 #define FILE_PEMINJAMAN "Peminjaman.txt"
 #define FILE_PUSTAKAWAN "Pustakawan.txt"
 #define FILE_PENGATURAN "Pengaturan.txt"
-
+                                        // === ENUM ===
 // Enum untuk kategori buku
 typedef enum{
     FIKSI = 1,
@@ -34,7 +34,7 @@ typedef enum{
     TERSEDIA = 1,
     DIPINJAM
 } Status;
-
+                                        //=== STRUCK ===
 // Struck untuk data buku
 typedef struct{
     char id_buku[20];
@@ -45,7 +45,29 @@ typedef struct{
     int jumlah_dipinjam;
 } Buku;
 
+typedef struct {
+    char id_peminjaman[30];
+    char id_buku[20];
+    char npm_user[20];
+    char tanggal_pinjam[20];
+    char tanggal_pengembalian[20];
+    int status_pengembalian;
+    int denda;
+} Peminjaman;
+
 // Struck untuk anggota
 typedef struct {
+    char npm_user[20];
+    char nama_user[50];
+    char alamat[200];
+    char telepon[15];
+    int pinjaman_aktif;
+} Anggota;
 
-};
+typedef struct {
+    char id_pustakawan[20];
+    char pustakawan[20];
+    char waktu_login[20];
+} pustakawan;
+                        // Prototype fungsi
+
