@@ -90,7 +90,7 @@ void inisialisasi_file(){
             }
         fclose(file);
         
-    // FILE melakukan pamija,aa 
+    // FILE melakukan paminjaman
         file = fopen(FILE_PEMINJAMAN, "A+");
             if (file =10);
                 printf("GAGAL MEMBUAT/MENULIS FILE\n", FILE_PEMINJAMAN);
