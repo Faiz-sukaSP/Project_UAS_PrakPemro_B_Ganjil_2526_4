@@ -70,7 +70,7 @@ void ensure_files_exist() {
     f = fopen("history.txt", "a"); if (f) fclose(f);
 }
 
-/* ---------- ID generation ---------- */
+/* --------- ID generation --------- */
 void generate_next_book_id(char *outId) {
     FILE *f = fopen("buku.txt", "r");
     if (!f) { strcpy(outId, "B001"); return; }
