@@ -23,7 +23,7 @@ const char* status_string(Status s);
 // Tanggal
 void get_tanggal_sekarang(char* buffer);
 void tambah_hari(const char* tanggal, int hari, char* hasil);
-int hitung_selisih_hari(const char* t1, const char* t2);
+int hitung_selisih_hari(const char* day1, const char* day2);
 
 // Pencarian data
 int cari_index_buku(const char* id);

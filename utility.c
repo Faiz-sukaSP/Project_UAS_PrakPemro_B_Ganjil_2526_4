@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include "utility.h"
 
+#include "utility.h"
 
 void clear_input_buffer(void) {
     int c;
