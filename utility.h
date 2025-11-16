@@ -1,33 +1,18 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-#include <time.h>
+#include "perpustakaan.h"
 
-                                            //ENUMERATION
-// Kategori Buku
-typedef enum { 
-    FIKSI, NON_FIKSI, KOMIK, MAJALAH, REFERENSI 
-} Kategori;
-
-// Status Buku
-typedef enum { 
-    TERSEDIA, DIPINJAM 
-} Status;
-
-                                           //UTILITY
+// Deklarasi fungsi utility
 void clear_input_buffer(void);
 void pause_screen(void);
 const char* kategori_string(Kategori k);
 const char* status_string(Status s);
-
-// Tanggal
 void get_tanggal_sekarang(char* buffer);
 void tambah_hari(const char* tanggal, int hari, char* hasil);
-int hitung_selisih_hari(const char* day1, const char* day2);
-
-// Pencarian data
-int cari_index_buku(const char* id);
-int cari_index_anggota(const char* id);
-int hitung_pinjaman_aktif(const char* id_anggota);
+int hitung_selisih_hari(const char* tanggal1, const char* tanggal2);
+int cari_index_buku(const char* id_buku);
+int cari_index_anggota(const char* npm_user);
+int hitung_pinjaman_aktif(const char* npm_user);
 
 #endif
