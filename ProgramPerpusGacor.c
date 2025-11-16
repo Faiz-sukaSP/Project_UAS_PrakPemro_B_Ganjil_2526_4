@@ -1,3 +1,15 @@
+/* Perpus.c
+   Sistem Perpustakaan Mini (Admin & Anggota)
+   - Auto-generate Book ID (B001...)
+   - Registrasi anggota (ID|username|password)
+   - Admin: tambah/edit/hapus buku
+   - Anggota: lihat/cari/pinjam/kembalikan/riwayat
+   - Batas pinjam per anggota (MAX_BORROW)
+   - Denda otomatis (DENDA_PER_HARI setelah MAX_DAYS)
+   - peminjaman.txt menyimpan active loans: idPin|idBuku|idAng|tgl|bln|thn
+   - history.txt menyimpan returns: idPin|idBuku|idAng|tglPin|blnPin|thnPin|tglRet|blnRet|thnRet|denda
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -238,16 +250,14 @@ void register_member() {
     printf("Registrasi sukses! ID anggota: %s\n", nextId);
 }
 
-/* ---------- Login: admin (admin/admin123) or anggota (search file). Return 1=admin,2=anggota,0=fail.
-   If anggota, outId filled with anggota ID.
-*/
+
 int login_system(char *outType, char *outId) {
     char user[40], pass[40];
     input_line("\nUsername: ", user, sizeof(user));
     input_line("Password: ", pass, sizeof(pass));
 
-    if (strcmp(user, "admin") == 0 && strcmp(pass, "admin123") == 0) {
-        strcpy(outType, "admin");
+    if (strcmp(user, "alip") == 0 && strcmp(pass, "11042007") == 0) {
+        strcpy(outType, "BossBesar");
         return 1;
     }
 
@@ -702,10 +712,12 @@ void ranking_books() {
         }
     }
     fclose(f);
-    // sort descending by count
+    
     for (int i=0;i<n;i++) for (int j=i+1;j<n;j++) if (arr[j].count > arr[i].count) {
         Buku t = arr[i]; arr[i] = arr[j]; arr[j] = t;
     }
     printf("\n=== Ranking Buku (terbanyak dipinjam) ===\n");
     for (int i=0;i<n && i<20;i++) printf("%d. %s (ID %s) - %d kali\n", i+1, arr[i].judul, arr[i].id, arr[i].count);
 }
+
+// Gelooo Program gacorrrrrrr //
